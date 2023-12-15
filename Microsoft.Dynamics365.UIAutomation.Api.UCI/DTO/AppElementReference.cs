@@ -359,12 +359,26 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             public static string Control = "PowerApp_Control";
 
         }
+
+        public static class CustomerServiceCopilot
+        {
+            public static string ControlId = "CustomerServiceCopilot_controlId";
+            public static string ControlButtonId = "CustomerServiceCopilot_controlButtonId";
+            public static string UserInput = "CustomerServiceCopilot_UserInput";
+            public static string UserSubmit = "CustomerServiceCopilot_UserSubmit";
+        }
     }
 
     public static class AppElements
     {
         public static Dictionary<string, string> Xpath = new Dictionary<string, string>()
         {
+            //Copilot
+            { "CustomerServiceCopilot_ControlId"    , "//div[@id=\"AppSidePane_MscrmControls.CSIntelligence.AICopilotControl\"]"},
+            { "CustomerServiceCopilot_ControlButtonId"    , "//button[@id=\"sidepane-tab-button-AppSidePane_MscrmControls.CSIntelligence.AICopilotControl\"]"},
+            { "CustomerServiceCopilot_UserInput"    , "//textarea[@data-id=\"webchat-sendbox-input\"]"},
+            { "CustomerServiceCopilot_UserSubmit"    , "//div[@class=\"webchat__send-box__main\"]//button"},
+
             //Application 
             { "App_Shell"    , "//*[@id=\"ApplicationShell\"]"},
 
@@ -453,7 +467,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Entity_Process"       , "//button[contains(@data-id,'MBPF.ConvertTo')]"},
             { "Entity_Save"       , "//button[@role='menuitem' and .//*[text()='Save']]"},
             { "Entity_SwitchProcess"       , "//button[contains(@data-id,'SwitchProcess')]"},
-            { "Entity_TextFieldContainer", ".//*[contains(@id, \'[NAME]-FieldSectionItemContainer\')]" },
+            { "Entity_TextFieldContainer", ".//*[contains(@data-id, \'[NAME]-FieldSectionItemContainer\')]" },
             { "Entity_TextFieldLabel", ".//label[contains(@id, \'[NAME]-field-label\')]" },
             { "Entity_TextFieldValue", ".//input[contains(@data-id, \'[NAME].fieldControl\')]" },
             { "Entity_TextFieldLookup", ".//*[contains(@id, \'systemuserview_id.fieldControl-LookupResultsDropdown')]" },
@@ -576,11 +590,11 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
 
             //MultiSelect
             { "MultiSelect_DivContainer",     ".//div[contains(@data-id,\"[NAME]-FieldSectionItemContainer\")]" },
-            { "MultiSelect_InputSearch",     ".//input[contains(@data-id,\"textInputBox\")]" },
+            { "MultiSelect_InputSearch",     ".//input[@class=\"msos-input\"]" },
             { "MultiSelect_SelectedRecord",  ".//li" },
             { "MultiSelect_SelectedRecord_DeleteButton", ".//button[contains(@data-id, \"delete\")]" },
             { "MultiSelect_SelectedRecord_Label",  ".//span[contains(@class, \"msos-selected-display-item-text\")]" },
-            { "MultiSelect_FlyoutOption",      "//li[label[contains(@title, \"[NAME]\")] and contains(@class,\"msos-option\")]" },
+            { "MultiSelect_FlyoutOption",      "//li[label[@title='[NAME]'] and contains(@class,'msos-option')]" },
             { "MultiSelect_FlyoutOptionCheckbox", "//input[contains(@class, \"msos-checkbox\")]" },
             { "MultiSelect_FlyoutCaret", "//button[contains(@class, \"msos-caret-button\")]" },
 
